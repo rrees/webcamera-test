@@ -1,12 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<video id="player" controls autoplay></video>
+		<script>  
+		  var player = document.getElementById('player');
 
-<video id="player" controls autoplay></video>
-<script>  
-  var player = document.getElementById('player');
+		  var handleSuccess = function(stream) {
+		    player.srcObject = stream;
+		  };
 
-  var handleSuccess = function(stream) {
-    player.srcObject = stream;
-  };
-
-  navigator.mediaDevices.getUserMedia({video: true})
-      .then(handleSuccess);
-</script>
+		  navigator.mediaDevices.getUserMedia({video: true})
+		      .then(handleSuccess);
+		</script>
+	</body>
+</html>
