@@ -6,10 +6,12 @@
 		<canvas id="snapshot" width=320 height=240></canvas>
 
 		<script>  
-			var player = document.getElementById('player');
+			const player = document.getElementById('player');
+			const captureButton = document.getElementById('capture');
+			const snapshotCanvas = document.getElementById('snapshot');
 
-			var handleSuccess = function(stream) {
-			player.srcObject = stream;
+			const handleSuccess = function(stream) {
+				player.srcObject = stream;
 			};
 
 			navigator.mediaDevices.getUserMedia({video: true})
