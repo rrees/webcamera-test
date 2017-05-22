@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="Stylesheet" href="app.css">
+	</head>
 	<body>
-		<video id="player" controls autoplay></video>
-		<button id="capture">Capture</button>
-		<canvas id="snapshot" width=320 height=240></canvas>
+		<div class="app">
+			<video id="player" class="camera-display" controls autoplay></video>
+			<div class="action-bar">
+				<button id="capture">Capture</button>
+			</div>
+		</div>
 
+		<div id="captures" class="captures">
+		</div>
 		<script>  
 			const player = document.getElementById('player');
 			const captureButton = document.getElementById('capture');
-			const snapshotCanvas = document.getElementById('snapshot');
 
 			const handleSuccess = function(stream) {
 				player.srcObject = stream;
@@ -18,10 +25,20 @@
 			  .then(handleSuccess);
 
 			captureButton.addEventListener('click', function() {
-				var context = snapshot.getContext('2d');
+				//const snapshotCanvas = document.getElementById('snapshot');
+				const snapshotCanvas = document.createElement('canvas');
+
+
+				snapshotCanvas.width = 320;
+				snapshotCanvas.height = 240;
+
+				var context = snapshotCanvas.getContext('2d');
 
 				// Draw the video frame to the canvas.
 				context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
+
+				const captures = document.getElementById('captures');
+				captures.append(snapshotCanvas);
 			});
 		</script>
 	</body>
