@@ -15,3 +15,10 @@
 .camera-display {
 	margin-bottom: 2rem;
 }
+
+.capture {
+	width: 100%;
+	background-color: white;
+	border-right: 15px black dashed;
+	border-left: 15px black dashed;
+}
