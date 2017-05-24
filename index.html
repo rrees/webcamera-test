@@ -9,7 +9,7 @@
 		<div class="app">
 			<video id="player" class="camera-display" controls autoplay></video>
 			<div class="action-bar">
-				<button id="capture">Capture</button>
+				<button id="capture-button"><img class="camera-icon" src="camera-slr.svg"> Take your picture</button>
 			</div>
 		</div>
 
@@ -18,7 +18,7 @@
 
 		<script>  
 			const player = document.getElementById('player');
-			const captureButton = document.getElementById('capture');
+			const captureButton = document.getElementById('capture-button');
 
 			const handleSuccess = function(stream) {
 				player.srcObject = stream;
